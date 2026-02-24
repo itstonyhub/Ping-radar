@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import RobotRadarBackground from "@/components/RobotRadarBackground";
 
 type ApiTweet = {
   id: string;
@@ -104,14 +106,21 @@ export default function Page() {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black" />
       </div>
 
+      {/* Robot with animated radar head */}
+      <RobotRadarBackground />
+
       <div className="relative mx-auto w-full max-w-5xl px-5 py-10">
         {/* header */}
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
-                <span className="text-cyan-300">⟡</span>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Airdrop Radar Logo"
+                width={48}
+                height={48}
+                className="h-12 w-12"
+              />
               <h1 className="text-3xl font-semibold tracking-tight">
                 Airdrop <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-emerald-300">Radar</span>
               </h1>
