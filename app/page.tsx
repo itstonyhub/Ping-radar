@@ -148,10 +148,29 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-right shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
-            <div className="text-xs text-white/60">Signals</div>
-            <div className="mt-1 text-xl font-semibold">
-              {status === "error" ? <span className="text-red-300">Error</span> : count}
+          <div className="flex items-start gap-3">
+            <a
+              href="https://x.com/air_drop_radar"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white/80 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-4 w-4 fill-current"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              <span className="hidden sm:inline">@air_drop_radar</span>
+              <span className="sm:hidden">Follow</span>
+            </a>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-right shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
+              <div className="text-xs text-white/60">Signals</div>
+              <div className="mt-1 text-xl font-semibold">
+                {status === "error" ? <span className="text-red-300">Error</span> : count}
+              </div>
             </div>
           </div>
         </div>
