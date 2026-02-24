@@ -24,3 +24,124 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Robot watermark - centered background */
+@keyframes robotFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-15px);
+  }
+}
+
+@keyframes radarSpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes radarPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.robot-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.12;
+  filter: blur(4px) contrast(1.05);
+  animation: robotFloat 12s ease-in-out infinite;
+}
+
+/* Radar overlay - positioned and clipped to robot head circle */
+.radar-overlay {
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  transform: translate(-50%, -50%);
+  clip-path: circle(50%);
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+.radar-rings {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-ring {
+  position: absolute;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 50%;
+}
+
+.radar-center-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(16, 185, 129, 1);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  animation: radarPulse 2s ease-in-out infinite;
+}
+
+.radar-sweep {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 50%;
+  left: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 315deg,
+    rgba(16, 185, 129, 0.3) 340deg,
+    rgba(16, 185, 129, 0.6) 350deg,
+    rgba(16, 185, 129, 0.3) 360deg
+  );
+  animation: radarSpin 5s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .robot-watermark {
+    opacity: 0.08;
+    filter: blur(3px) contrast(1.05);
+  }
+}
